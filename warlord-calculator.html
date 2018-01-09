@@ -3,9 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>战神世界-资源计算器</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-	<h1>战神世界资源计算器</h1>
+<body ng-app="myApp" ng-controller="warlordCalculatorController">
+	<div class="container">
+		<h1>战神世界资源计算器</h1>
+		<div class="row">
+			<div class="col-md-7">
+				<div class="form-group">
+					<label for="">请在下面输入框输入您要计算的资源</label>
+					<textarea class="form-control" name="" id="" cols="30" rows="6" ng-model="sourceData"></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" ng-click="calcul()">计算</button>
+					<label class="alert alert-danger" ng-show="errMessage">{{errMessage}}</label>
+				</div>
+				<div class="form-group">
+					<label for="">结果：</label>
+					<strong class="">{{result|number}}</strong>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<h3>资源计算比例参考</h3>
+				<ul>
+					<li for="" ng-repeat="conversion in conversionRatio">{{conversion.name}}：{{conversion.price}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	
 </body>
+<script src="https://cdn.bootcss.com/angular.js/1.6.8/angular.min.js"></script>
+<script src="warlordCalculator.js"></script>
 </html>
