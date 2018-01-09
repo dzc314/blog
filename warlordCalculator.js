@@ -23,7 +23,7 @@ angular.module('myApp', [])
             { 'name': '重剑', 'price': 800 },
             { 'name': '勇士剑', 'price': 1600 },
             { 'name': '重型板甲', 'price': 500 },
-            { 'name': '金铠甲', 'price': 1000 },
+            { 'name': '合金铠甲', 'price': 1000 },
             { 'name': '皇家战甲', 'price': 2000 }
         ];
         $scope.calcul = function() {
@@ -37,7 +37,7 @@ angular.module('myApp', [])
                 $scope.errMessage = '您要计算的资源格式有误！';
                 return;
             }
-            var data = $scope.sourceData.split(' ').join('').split(')');
+            var data = $scope.sourceData.split(' ').join('').split('\n').join('').split(')');
             var result = 0;
             if (data.length > 0) {
                 // console.log(data);
@@ -47,6 +47,7 @@ angular.module('myApp', [])
                         var num = Number(thisData[1]);
                         var price = getPrice(thisData[0]);
                         result += num * price;
+                        // console.log(thisData[0],num,price)
                     }
                 });
             }

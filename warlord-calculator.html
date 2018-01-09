@@ -11,7 +11,8 @@
 <body ng-app="myApp" ng-controller="warlordCalculatorController">
 	<div class="container">
 		<h1>战神世界资源计算器</h1>
-		<h4>感谢@流浪山谷 提供三国版的战神世界，让广大战神老玩家重温战神世界里的乐趣！也希望更多的人加入我们的游戏，QQ群【169280366】</h4>
+		<h4>感谢@流浪山谷 提供三国版的战神世界，让广大战神老玩家重温战神世界里的乐趣！</h4>
+		<h3>也希望更多的人加入我们的游戏，QQ群【169280366】</h3>
 		<div class="row">
 			<div class="col-md-7">
 				<div class="form-group">
@@ -23,12 +24,11 @@
 					<label class="alert-danger input-sm" ng-show="errMessage" ng-bind="errMessage"></label>
 				</div>
 				<div class="form-group">
-					<label for="">结果：</label>
-					<strong class="">{{result|number}}</strong>
+					<h2 class=""><small>结果：</small>{{result|number}}</h2>
 				</div>
 			</div>
 			<div class="col-md-5">
-				<h3>资源计算比例参考</h3>
+				<h3>资源计算比例参考<small>(数据收集：@不一样)</small></h3>
 				<ul>
 					<li ng-repeat="conversion in conversionRatio">{{conversion.name}}：{{conversion.price}}</li>
 				</ul>
@@ -40,6 +40,6 @@
 	</div>
 	
 </body>
-<script src="https://cdn.bootcss.com/angular.js/1.6.8/angular.min.js"></script>
+<script src="http://apps.bdimg.com/libs/angular.js/1.5.0-beta.0/angular.min.js"></script>
 <script src="warlordCalculator.js"></script>
 </html>
