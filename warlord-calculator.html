@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>战神世界-资源计算器</title>
+	<meta name="description" content="战神世界资源计算器，在线转换战神世界资源统计">
+	<meta name="keywords" content="战神世界资源计算器,战神世界资源在线统计">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -18,7 +20,7 @@
 				</div>
 				<div class="form-group">
 					<button class="btn btn-primary" ng-click="calcul()">计算</button>
-					<label class="alert-danger input-sm" ng-show="errMessage">{{errMessage}}</label>
+					<label class="alert-danger input-sm" ng-show="errMessage" ng-bind="errMessage"></label>
 				</div>
 				<div class="form-group">
 					<label for="">结果：</label>
