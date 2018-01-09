@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp', [])
-    .controller('warlordCalculatorController', function($scope) {
+    .controller('warlordCalculatorController', function($scope,$filter) {
         $scope.sourceData = '';
         $scope.conversionRatio = [
             { 'name': '银币', 'price': 1 },
@@ -26,9 +26,10 @@ angular.module('myApp', [])
             { 'name': '合金铠甲', 'price': 1000 },
             { 'name': '皇家战甲', 'price': 2000 }
         ];
+        $scope.result = '';
         $scope.calcul = function() {
             $scope.errMessage = '';
-            $scope.result = '';
+	        $scope.result = '';
             if ($scope.sourceData.length == 0) {
                 $scope.errMessage = '请输入您要计算的资源';
                 return;
@@ -51,8 +52,8 @@ angular.module('myApp', [])
                     }
                 });
             }
-
             $scope.result = result;
+            $scope.shortResult = $filter('shortNumber')(result);
         };
 
         function getPrice(name) {
@@ -68,4 +69,15 @@ angular.module('myApp', [])
         }
 
 
-    });
+    })
+    .filter('shortNumber',['$filter',function($filter){
+    	return function(value){
+    		if(value.toString().length>8){
+    			return $filter('number')(value/100000000,1)+ ' 亿';
+    		}
+    		if(value.toString().length>4){
+    			return $filter('number')(value/1000,1)+ ' 万';
+    		}
+    		return $filter('number')(value,1);
+    	}
+    }]);
