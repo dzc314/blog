@@ -75,9 +75,9 @@ angular.module('myApp', [])
     		if(value.toString().length>8){
     			return $filter('number')(value/100000000,1)+ ' 亿';
     		}
-    		if(value.toString().length>4){
-    			return $filter('number')(value/1000,1)+ ' 万';
+    		if(value.toString().length>5){
+    			return $filter('number')(value/10000,1)+ ' 万';
     		}
-    		return $filter('number')(value,1);
+    		return $filter('number')(value,0);
     	}
     }]);
