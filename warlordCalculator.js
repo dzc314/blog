@@ -16,6 +16,7 @@ angular.module('myApp', [])
             { 'name': '短弓', 'price': 500 },
             { 'name': '强弓', 'price': 1000 },
             { 'name': '反曲弓', 'price': 2000 },
+            { 'name': '狙击弩', 'price': 2000 },
             { 'name': '环甲', 'price': 300 },
             { 'name': '锁子甲', 'price': 600 },
             { 'name': '龙鳞战甲', 'price': 1200 },
@@ -67,8 +68,6 @@ angular.module('myApp', [])
             }
             return price;
         }
-
-
     })
     .filter('shortNumber',['$filter',function($filter){
     	return function(value){
@@ -79,5 +78,5 @@ angular.module('myApp', [])
     			return $filter('number')(value/10000,1)+ ' 万';
     		}
     		return $filter('number')(value,0);
-    	}
+    	};
     }]);
